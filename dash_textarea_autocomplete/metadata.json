@@ -1,6 +1,6 @@
 {
   "src/lib/components/DashTextareaAutocomplete.react.js": {
-    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "description": "DashTextareaAutocomplete\n\nSimple `@webscopeio/react-textarea-autocomplete` wrapper for Dash\nenabling auto-completion in multi-line `<textarea>` elements.",
     "displayName": "DashTextareaAutocomplete",
     "methods": [],
     "props": {
@@ -11,26 +11,115 @@
         "required": false,
         "description": "The ID used to identify this component in Dash callbacks."
       },
-      "label": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "A label that will be printed when this component is rendered."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The value displayed in the input."
-      },
       "setProps": {
         "type": {
           "name": "func"
         },
         "required": false,
         "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The value displayed in the <textarea>."
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Provides a hint to the user of what can be entered in the <textarea> field."
+      },
+      "wordList": {
+        "type": {
+          "name": "array"
+        },
+        "required": true,
+        "description": "List of string available for auto-completion."
+      },
+      "triggerChar": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Character that triggers auto-completion machinery.\nDefaults to `:`. (from `react-textarea-autocomplete`)",
+        "defaultValue": {
+          "value": "\":\"",
+          "computed": false
+        }
+      },
+      "minChar": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of characters that user should type for trigger a suggestion.\nDefaults to 1. (from `react-textarea-autocomplete`)",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class names of the <textarea> (from `react-textarea-autocomplete`)."
+      },
+      "containerClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class names of the textarea container (from `react-textarea-autocomplete`)."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style of the <textarea>.(from `react-textarea-autocomplete`)."
+      },
+      "listStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style of the list wrapper (from `react-textarea-autocomplete`)."
+      },
+      "itemStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Styles of the items wrapper."
+      },
+      "loaderStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style of the loader wrapper (from `react-textarea-autocomplete`)."
+      },
+      "containerStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Styles of the textarea container (from `react-textarea-autocomplete`).",
+        "defaultValue": {
+          "value": "{\n    marginTop: 20,\n    width: 400,\n    height: 100,\n    margin: \"20px auto\"\n}",
+          "computed": false
+        }
+      },
+      "dropdownStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Styles of the dropdown wrapper."
       }
     }
   }

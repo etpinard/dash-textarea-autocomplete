@@ -188,4 +188,6 @@ DashTextareaAutocomplete.propTypes = {
      * Styles of the dropdown wrapper.
      */
     dropdownStyle: PropTypes.object,
+
+    // More <textarea> props
 };

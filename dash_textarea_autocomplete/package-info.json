@@ -16,6 +16,7 @@
   "author": "Etienne Tetreault-Pinard <info@etpinard.xyz>",
   "license": "MIT",
   "dependencies": {
+    "@webscopeio/react-textarea-autocomplete": "^4.7.3",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
