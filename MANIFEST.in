@@ -1,0 +1,7 @@
+include dash_textarea_autocomplete/dash_textarea_autocomplete.min.js
+include dash_textarea_autocomplete/dash_textarea_autocomplete.min.js.map
+include dash_textarea_autocomplete/metadata.json
+include dash_textarea_autocomplete/package-info.json
+include README.md
+include LICENSE
+include package.json
