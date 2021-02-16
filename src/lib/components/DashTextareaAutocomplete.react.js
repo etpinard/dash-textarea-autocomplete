@@ -1,41 +1,114 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from "react";
+import PropTypes from "prop-types";
+import ReactTextareaAutocomplete from "@webscopeio/react-textarea-autocomplete";
+import "@webscopeio/react-textarea-autocomplete/style.css";
 
 /**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+ * Simple fuzzy string finder
+ * taken from:
+ * https://stackoverflow.com/a/15252131
+ */
+function fuzzy (s1, s2) {
+    s1 = s1.toLowerCase();
+    s2 = s2.toLowerCase();
+    for (let i = 0, n = -1, l; l = s2[i++];) {
+        if (!~(n = s1.indexOf(l, n + 1))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
+ * DashTextareaAutocomplete
+ *
+ * Simple `@webscopeio/react-textarea-autocomplete` wrapper for Dash
+ * enabling auto-completion in multi-line `<textarea>` elements.
+ *
  */
 export default class DashTextareaAutocomplete extends Component {
     render() {
-        const {id, label, setProps, value} = this.props;
+        const {
+            id,
+            setProps,
+            value,
+            placeholder,
+            wordList,
+            triggerChar,
+            minChar,
+            className,
+            containerClassName,
+            style,
+            listStyle,
+            itemStyle,
+            loaderStyle,
+            containerStyle,
+            dropdownStyle
+        } = this.props;
+
+        // auxiliary elements
+        const Item = ({ entity: { word } }) => <div>{`${word}`}</div>;
+        const Loading = () => <span>Loading</span>;
 
         return (
             <div id={id}>
-                ExampleComponent: {label}&nbsp;
-                <input
+                <ReactTextareaAutocomplete
+                    // grab ref to <textarea>, setup onChange handler
+                    innerRef={textarea => {
+                        this.textarea = textarea;
+                    }}
+                    onChange={(e) => {
+                        setProps({value: this.textarea.value});
+                    }}
+                    // pass props
                     value={value}
-                    onChange={
-                        /*
-                         * Send the new value to the parent component.
-                         * setProps is a prop that is automatically supplied
-                         * by dash's front-end ("dash-renderer").
-                         * In a Dash app, this will update the component's
-                         * props and send the data back to the Python Dash
-                         * app server if a callback uses the modified prop as
-                         * Input or State.
-                         */
-                        e => setProps({ value: e.target.value })
-                    }
+                    placeholder={placeholder}
+                    minChar={minChar}
+                    className={className}
+                    containerClassName={containerClassName}
+                    style={style}
+                    listStyle={listStyle}
+                    loaderStyle={loaderStyle}
+                    itemStyle={itemStyle}
+                    loaderStyle={loaderStyle}
+                    dropdownStyle={dropdownStyle}
+                    containerStyle={containerStyle}
+                    // setup loading component
+                    loadingComponent={Loading}
+                    // setup trigger handler
+                    trigger={{
+                        [triggerChar]: {
+                            dataProvider: token => {
+                                return wordList
+                                  .filter(w => fuzzy(w, token))
+                                  .map(w => ({word: w}))
+                            },
+                            component: Item,
+                            output: item => item.word
+                        }
+                    }}
                 />
             </div>
         );
     }
 }
 
-DashTextareaAutocomplete.defaultProps = {};
+DashTextareaAutocomplete.defaultProps = {
+    triggerChar: ":",
+    minChar: 1,
+    containerStyle: {
+        marginTop: 20,
+        width: 400,
+        height: 100,
+        margin: "20px auto"
+    }
+};
+
+/**
+ * Mostly taken from;
+ * - https://github.com/webscopeio/react-textarea-autocomplete#props
+ * - https://github.com/plotly/dash-core-components/blob/dev/src/components/Textarea.react.js
+ */
 
 DashTextareaAutocomplete.propTypes = {
     /**
@@ -44,18 +117,75 @@ DashTextareaAutocomplete.propTypes = {
     id: PropTypes.string,
 
     /**
-     * A label that will be printed when this component is rendered.
+     * Dash-assigned callback that should be called to report property changes
+     * to Dash, to make them available for callbacks.
      */
-    label: PropTypes.string.isRequired,
+    setProps: PropTypes.func,
 
     /**
-     * The value displayed in the input.
+     * The value displayed in the <textarea>.
      */
     value: PropTypes.string,
 
     /**
-     * Dash-assigned callback that should be called to report property changes
-     * to Dash, to make them available for callbacks.
+     * Provides a hint to the user of what can be entered in the <textarea> field.
      */
-    setProps: PropTypes.func
+    placeholder: PropTypes.string,
+
+    /**
+     * List of string available for auto-completion.
+     */
+    wordList: PropTypes.array.isRequired,
+
+    /**
+     * Character that triggers auto-completion machinery.
+     * Defaults to `:`. (from `react-textarea-autocomplete`)
+     */
+    triggerChar: PropTypes.string,
+
+    /**
+     * Number of characters that user should type for trigger a suggestion.
+     * Defaults to 1. (from `react-textarea-autocomplete`)
+     */
+    minChar: PropTypes.number,
+
+    /**
+     * Class names of the <textarea> (from `react-textarea-autocomplete`).
+     */
+    className: PropTypes.string,
+
+    /**
+     * Class names of the textarea container (from `react-textarea-autocomplete`).
+     */
+    containerClassName: PropTypes.string,
+
+    /**
+     * Style of the <textarea>.(from `react-textarea-autocomplete`).
+     */
+    style: PropTypes.object,
+
+    /**
+     * Style of the list wrapper (from `react-textarea-autocomplete`).
+     */
+    listStyle: PropTypes.object,
+
+    /**
+     * Styles of the items wrapper.
+     */
+    itemStyle: PropTypes.object,
+
+    /**
+     * Style of the loader wrapper (from `react-textarea-autocomplete`).
+     */
+    loaderStyle: PropTypes.object,
+
+    /**
+     * Styles of the textarea container (from `react-textarea-autocomplete`).
+     */
+    containerStyle: PropTypes.object,
+
+    /**
+     * Styles of the dropdown wrapper.
+     */
+    dropdownStyle: PropTypes.object,
 };
