@@ -67,3 +67,6 @@ if __name__ == '__main__':
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
+## License
+
+[MIT](LICENSE)
