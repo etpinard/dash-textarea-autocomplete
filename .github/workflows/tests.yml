@@ -35,4 +35,4 @@ jobs:
       - name: Lint JavaScript
         run: npm run lint:js
       - name: Test
-        run: pytest tests
+        run: pytest --headless tests
