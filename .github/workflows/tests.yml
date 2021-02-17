@@ -34,5 +34,7 @@ jobs:
         run: npm run build
       - name: Lint JavaScript
         run: npm run lint:js
+      - name: Lint Python
+        run: flake8 usage.py tests
       - name: Test
         run: pytest --headless tests
