@@ -6,6 +6,14 @@ jobs:
   build-and-test:
     name: Build component and test it
     runs-on: 'ubuntu-latest'
+    services:
+      hub:
+        image: selenium/hub:3.141.59-gold
+      firefox:
+        image: selenium/node-chrome:3.141.59-gold
+        env:
+          HUB_HOST: hub
+          HUB_PORT: 4444
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14
