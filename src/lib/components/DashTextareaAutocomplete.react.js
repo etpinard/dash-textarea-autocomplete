@@ -8,9 +8,10 @@ import "@webscopeio/react-textarea-autocomplete/style.css";
  * taken from:
  * https://stackoverflow.com/a/15252131
  */
-function fuzzy (s1, s2) {
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
+function fuzzy (_s1, _s2) {
+    const s1 = _s1.toLowerCase();
+    const s2 = _s2.toLowerCase();
+    // eslint-disable-next-line no-cond-assign
     for (let i = 0, n = -1, l; l = s2[i++];) {
         if (!~(n = s1.indexOf(l, n + 1))) {
             return false;
@@ -57,7 +58,7 @@ export default class DashTextareaAutocomplete extends Component {
                     innerRef={textarea => {
                         this.textarea = textarea;
                     }}
-                    onChange={(e) => {
+                    onChange={() => {
                         setProps({value: this.textarea.value});
                     }}
                     // pass props
@@ -68,11 +69,10 @@ export default class DashTextareaAutocomplete extends Component {
                     containerClassName={containerClassName}
                     style={style}
                     listStyle={listStyle}
-                    loaderStyle={loaderStyle}
                     itemStyle={itemStyle}
                     loaderStyle={loaderStyle}
-                    dropdownStyle={dropdownStyle}
                     containerStyle={containerStyle}
+                    dropdownStyle={dropdownStyle}
                     // setup loading component
                     loadingComponent={Loading}
                     // setup trigger handler
