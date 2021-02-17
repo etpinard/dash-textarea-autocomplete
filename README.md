@@ -7,11 +7,13 @@ Dash component wrapper for [`@webscopeio/react-textarea-autocomplete`](https://g
 
 ## Get started
 
-1. Install  dash_textarea_autocomplete`, Dash and its dependencies: https://dash.plotly.com/installation
+1. Install `dash_textarea_autocomplete`, Dash and its dependencies:
 
 ```
 pip install dash dash_textarea_autocomplete
 ```
+
+see https://dash.plotly.com/installation for more info.
 
 2. Run `python usage.py`
 
