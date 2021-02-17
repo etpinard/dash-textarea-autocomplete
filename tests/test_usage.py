@@ -12,7 +12,8 @@ def test_render_component(dash_duo):
     # The html input will be a children of the #input dash component
     my_component = dash_duo.find_element('#input > div > textarea')
 
-    assert 'Type something, use `:` to invoke auto-completion' == my_component.get_attribute('placeholder')
+    assert 'Type something, use `:` to invoke auto-completion' == \
+        my_component.get_attribute('placeholder')
 
     # Clear the input
     dash_duo.clear_input(my_component)
