@@ -1,8 +1,12 @@
 # Dash Textarea Autocomplete
 
-Dash Textarea Autocomplete is a Dash component library.
+Dash component wrapper for [`@webscopeio/react-textarea-autocomplete`](https://github.com/webscopeio/react-textarea-autocomplete).
 
-Get started with:
+![demo](demo.gif)
+
+
+## Get started
+
 1. Install Dash and its dependencies: https://dash.plotly.com/installation
 2. Run `python usage.py`
 3. Visit http://localhost:8050 in your web browser
