@@ -11,6 +11,7 @@
     "start": "webpack-serve --config ./webpack.serve.config.js --open",
     "validate-init": "python _validate_init.py",
     "prepublishOnly": "npm run validate-init",
+    "lint:js": "eslint src/lib/",
     "build:js": "webpack --mode production",
     "build:backends": "dash-generate-components ./src/lib/components dash_textarea_autocomplete -p package-info.json --r-prefix '' --jl-prefix ''",
     "build:backends-activated": "(. venv/bin/activate || venv\\scripts\\activate && npm run build:py_and_r)",
