@@ -2,7 +2,7 @@
 
 Dash component wrapper for [`@webscopeio/react-textarea-autocomplete`](https://github.com/webscopeio/react-textarea-autocomplete).
 
-![demo](demo.gif)
+![demo](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/demo.gif)
 
 
 ## Get started
@@ -71,8 +71,8 @@ _TODO_
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/CONTRIBUTING.md)
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/LICENSE)
