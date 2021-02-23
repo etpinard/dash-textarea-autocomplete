@@ -77,8 +77,7 @@ pkg> activate .
 pkg> add Dash DashHtmlComponents DashTextareaAutocomplete
 ```
 
-2. Run `julia --project usage.jl`
-See [`usage.jl`](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/usage.jl)
+2. Run `julia --project usage.jl` - [click here to see `usage.jl`](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/usage.jl)
 
 3. Visit http://localhost:8050 in your web browser
 
