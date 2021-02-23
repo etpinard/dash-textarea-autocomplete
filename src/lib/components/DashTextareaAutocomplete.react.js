@@ -95,13 +95,7 @@ export default class DashTextareaAutocomplete extends Component {
 
 DashTextareaAutocomplete.defaultProps = {
     triggerChar: ":",
-    minChar: 1,
-    containerStyle: {
-        marginTop: 20,
-        width: 400,
-        height: 100,
-        margin: "20px auto"
-    }
+    minChar: 1
 };
 
 /**
