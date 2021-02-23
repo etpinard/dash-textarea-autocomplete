@@ -87,6 +87,27 @@ See [`usage.jl`](https://github.com/etpinard/dash-textarea-autocomplete/blob/mai
 
 _TODO_
 
+## Props
+
+```
+ - id (string; optional): The ID used to identify this component in Dash callbacks.
+ - value (string; optional): The value displayed in the <textarea>.
+ - placeholder (string; optional): Provides a hint to the user of what can be entered in the <textarea> field.
+ - wordList (list; required): List of string available for auto-completion.
+ - triggerChar (string; default ":"): Character that triggers auto-completion machinery.
+ Defaults to `:`. (from `react-textarea-autocomplete`)
+ - minChar (number; default 1): Number of characters that user should type for trigger a suggestion.
+ Defaults to 1. (from `react-textarea-autocomplete`)
+ - className (string; optional): Class names of the <textarea> (from `react-textarea-autocomplete`).
+ - containerClassName (string; optional): Class names of the textarea container (from `react-textarea-autocomplete`).
+ - style (dict; optional): Style of the <textarea>.(from `react-textarea-autocomplete`).
+ - listStyle (dict; optional): Style of the list wrapper (from `react-textarea-autocomplete`).
+ - itemStyle (dict; optional): Styles of the items wrapper.
+ - loaderStyle (dict; optional): Style of the loader wrapper (from `react-textarea-autocomplete`).
+ - containerStyle (dict; optional): Styles of the textarea container (from `react-textarea-autocomplete`).
+ - dropdownStyle (dict; optional): Styles of the dropdown wrapper.
+ ```
+
 ## Contributing
 
 See [CONTRIBUTING.md](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/CONTRIBUTING.md)
