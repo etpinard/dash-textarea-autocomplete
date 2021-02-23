@@ -7,13 +7,13 @@ Dash component wrapper for [`@webscopeio/react-textarea-autocomplete`](https://g
 
 ## Get started
 
+### Dash for Python
+
 1. Install `dash-textarea-autocomplete`, Dash and its dependencies:
 
 ```
 pip install dash dash-textarea-autocomplete
 ```
-
-see https://dash.plotly.com/installation for more info.
 
 2. Run `python usage.py`
 
@@ -28,7 +28,9 @@ WORD_LIST = ['apple', 'application', 'apartment',
              'boat', 'banana', 'boss',
              'coast', 'code', 'cat']
 
-app = dash.Dash(__name__)
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
     dash_textarea_autocomplete.DashTextareaAutocomplete(
@@ -38,12 +40,13 @@ app.layout = html.Div([
         wordList=WORD_LIST,
         # common options with their default values
         # triggerChar=':',
-        # minChar=1
-    ),
+        # minChar=1,
+        style={'minHeight': '100px'},
+        dropdownStyle={'maxHeight': '120px', 'overflow': 'auto'}),
     html.Div(id='output'),
     html.Button('CLICK', id='btn'),
     html.Div(id='output2')
-])
+], className='container')
 
 
 @app.callback(Output('output', 'children'),
@@ -65,7 +68,22 @@ if __name__ == '__main__':
 
 3. Visit http://localhost:8050 in your web browser
 
-## Props
+### Dash for Julia
+
+1. Install `DashTextareaAutocomplete.jl`, `Dash.jl` and `DashHtmlComponents.jl`:
+
+```jl
+pkg> activate .
+pkg> add Dash DashHtmlComponents DashTextareaAutocomplete
+```
+
+2. Run `julia --project usage.jl`
+
+See [`usage.jl`](https://github.com/etpinard/dash-textarea-autocomplete/blob/main/usage.jl)
+
+3. Visit http://localhost:8050 in your web browser
+
+### Dash for R
 
 _TODO_
 
