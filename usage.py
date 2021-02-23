@@ -7,7 +7,9 @@ WORD_LIST = ['apple', 'application', 'apartment',
              'boat', 'banana', 'boss',
              'coast', 'code', 'cat']
 
-app = dash.Dash(__name__)
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
     dash_textarea_autocomplete.DashTextareaAutocomplete(
@@ -17,12 +19,13 @@ app.layout = html.Div([
         wordList=WORD_LIST,
         # common options with their default values
         # triggerChar=':',
-        # minChar=1
-    ),
+        # minChar=1,
+        style={'minHeight': '100px'},
+        dropdownStyle={'maxHeight': '120px', 'overflow': 'auto'}),
     html.Div(id='output'),
     html.Button('CLICK', id='btn'),
     html.Div(id='output2')
-])
+], className='container')
 
 
 @app.callback(Output('output', 'children'),
