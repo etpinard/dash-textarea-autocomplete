@@ -25,12 +25,7 @@ Defaults to 1. (from `react-textarea-autocomplete`)
 - listStyle (dict; optional): Style of the list wrapper (from `react-textarea-autocomplete`).
 - itemStyle (dict; optional): Styles of the items wrapper.
 - loaderStyle (dict; optional): Style of the loader wrapper (from `react-textarea-autocomplete`).
-- containerStyle (dict; default {
-    marginTop: 20,
-    width: 400,
-    height: 100,
-    margin: "20px auto"
-}): Styles of the textarea container (from `react-textarea-autocomplete`).
+- containerStyle (dict; optional): Styles of the textarea container (from `react-textarea-autocomplete`).
 - dropdownStyle (dict; optional): Styles of the dropdown wrapper."""
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, placeholder=Component.UNDEFINED, wordList=Component.REQUIRED, triggerChar=Component.UNDEFINED, minChar=Component.UNDEFINED, className=Component.UNDEFINED, containerClassName=Component.UNDEFINED, style=Component.UNDEFINED, listStyle=Component.UNDEFINED, itemStyle=Component.UNDEFINED, loaderStyle=Component.UNDEFINED, containerStyle=Component.UNDEFINED, dropdownStyle=Component.UNDEFINED, **kwargs):

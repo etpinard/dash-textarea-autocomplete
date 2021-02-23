@@ -108,11 +108,7 @@
           "name": "object"
         },
         "required": false,
-        "description": "Styles of the textarea container (from `react-textarea-autocomplete`).",
-        "defaultValue": {
-          "value": "{\n    marginTop: 20,\n    width: 400,\n    height: 100,\n    margin: \"20px auto\"\n}",
-          "computed": false
-        }
+        "description": "Styles of the textarea container (from `react-textarea-autocomplete`)."
       },
       "dropdownStyle": {
         "type": {

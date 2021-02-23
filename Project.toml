@@ -2,7 +2,7 @@
 name = "DashTextareaAutocomplete"
 uuid = "1b08a953-4be3-4667-9a23-5aadec407a69"
 authors = ["Etienne Tetreault-Pinard <info@etpinard.xyz>"]
-version = "0.2.0"
+version = "1.0.0"
 
 [deps]
 Dash = "1b08a953-4be3-4667-9a23-3db579824955"
