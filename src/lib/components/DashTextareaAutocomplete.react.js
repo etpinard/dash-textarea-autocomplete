@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import ReactTextareaAutocomplete from "@webscopeio/react-textarea-autocomplete";
 import "@webscopeio/react-textarea-autocomplete/style.css";
+import dummy from "../../jl/dummy.js"
 
 /**
  * Simple fuzzy string finder
@@ -63,7 +64,7 @@ export default class DashTextareaAutocomplete extends Component {
                     }}
                     // pass props
                     value={value}
-                    placeholder={placeholder}
+                    placeholder={dummy}
                     minChar={minChar}
                     className={className}
                     containerClassName={containerClassName}
