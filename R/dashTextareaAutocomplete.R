@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-dashTextareaAutocomplete <- function(id=NULL, value=NULL, placeholder=NULL, wordList=NULL, triggerChar=NULL, minChar=NULL, className=NULL, containerClassName=NULL, style=NULL, listStyle=NULL, itemStyle=NULL, loaderStyle=NULL, containerStyle=NULL, dropdownStyle=NULL) {
+dashTextareaAutocomplete <- function(id=NULL, className=NULL, containerClassName=NULL, containerStyle=NULL, dropdownStyle=NULL, itemStyle=NULL, listStyle=NULL, loaderStyle=NULL, minChar=NULL, placeholder=NULL, style=NULL, triggerChar=NULL, value=NULL, wordList=NULL) {
     
-    props <- list(id=id, value=value, placeholder=placeholder, wordList=wordList, triggerChar=triggerChar, minChar=minChar, className=className, containerClassName=containerClassName, style=style, listStyle=listStyle, itemStyle=itemStyle, loaderStyle=loaderStyle, containerStyle=containerStyle, dropdownStyle=dropdownStyle)
+    props <- list(id=id, className=className, containerClassName=containerClassName, containerStyle=containerStyle, dropdownStyle=dropdownStyle, itemStyle=itemStyle, listStyle=listStyle, loaderStyle=loaderStyle, minChar=minChar, placeholder=placeholder, style=style, triggerChar=triggerChar, value=value, wordList=wordList)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ dashTextareaAutocomplete <- function(id=NULL, value=NULL, placeholder=NULL, word
         props = props,
         type = 'DashTextareaAutocomplete',
         namespace = 'dash_textarea_autocomplete',
-        propNames = c('id', 'value', 'placeholder', 'wordList', 'triggerChar', 'minChar', 'className', 'containerClassName', 'style', 'listStyle', 'itemStyle', 'loaderStyle', 'containerStyle', 'dropdownStyle'),
+        propNames = c('id', 'className', 'containerClassName', 'containerStyle', 'dropdownStyle', 'itemStyle', 'listStyle', 'loaderStyle', 'minChar', 'placeholder', 'style', 'triggerChar', 'value', 'wordList'),
         package = 'dashTextareaAutocomplete'
         )
 
