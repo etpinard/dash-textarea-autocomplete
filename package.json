@@ -15,8 +15,7 @@
     "build:js": "webpack --mode production",
     "build:backends": "dash-generate-components ./src/lib/components dash_textarea_autocomplete -p package-info.json --r-prefix '' --jl-prefix ''",
     "build:backends-activated": "(. venv/bin/activate || venv\\scripts\\activate && npm run build:py_and_r)",
-    "build:fixup-jl": "mkdir -p src/jl && mv -f src/dashtextareaautocomplete.jl src/jl/ && sed -i 's/include(\"dashtextareaautocomplete.jl\")/include(\"jl\\/dashtextareaautocomplete.jl\")/' src/DashTextareaAutocomplete.jl",
-    "build": "npm run build:js && npm run build:backends && npm run build:fixup-jl",
+    "build": "npm run build:js && npm run build:backends",
     "build:activated": "npm run build:js && npm run build:backends-activated"
   },
   "author": "Etienne Tetreault-Pinard <info@etpinard.xyz>",
