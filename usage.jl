@@ -1,5 +1,4 @@
 using Dash
-using DashHtmlComponents
 using DashTextareaAutocomplete
 
 const WORDLIST = ["apple", "application", "apartment",
