@@ -1,7 +1,5 @@
 import dash_textarea_autocomplete
-import dash
-from dash.dependencies import Input, Output, State
-import dash_html_components as html
+from dash import Dash, callback, html, Input, Output, State
 
 WORD_LIST = ['apple', 'application', 'apartment',
              'boat', 'banana', 'boss',
@@ -9,7 +7,7 @@ WORD_LIST = ['apple', 'application', 'apartment',
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
     dash_textarea_autocomplete.DashTextareaAutocomplete(
@@ -28,15 +26,15 @@ app.layout = html.Div([
 ], className='container')
 
 
-@app.callback(Output('output', 'children'),
-              Input('input', 'value'))
+@callback(Output('output', 'children'),
+          Input('input', 'value'))
 def display_output(value):
     return 'You have entered: {}'.format(value)
 
 
-@app.callback(Output('output2', 'children'),
-              Input('btn', 'n_clicks'),
-              State('input', 'value'))
+@callback(Output('output2', 'children'),
+          Input('btn', 'n_clicks'),
+          State('input', 'value'))
 def display_output2(n_clicks, value):
     return 'After click, you have: {}'.format(value)
 
