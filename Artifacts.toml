@@ -1,0 +1,6 @@
+[dash_textarea_autocomplete_resources]
+git-tree-sha1 = "09ae69bfbee71cc02d68fab894afa5e652a15f22"
+
+    [[dash_textarea_autocomplete_resources.download]]
+    sha256 = "a4b82187746e934d9604d45a70125262c96c50341ebb9d6962058b063e69bfe6"
+    url = "https://github.com/Felix-Gauthier/DashTextareaAutoCompleteResources/archive/refs/tags/v1.0.0.tar.gz"
