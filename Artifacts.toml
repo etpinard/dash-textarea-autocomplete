@@ -1,0 +1,6 @@
+[dash_textarea_autocomplete_resources]
+git-tree-sha1 = "<sha1>"
+
+    [[dash_textarea_autocomplete_resources.download]]
+    sha256 = "<sha256>"
+    url = "<url>"
