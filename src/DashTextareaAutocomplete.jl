@@ -1,7 +1,6 @@
 
 module DashTextareaAutocomplete
-using Dash
-using Pkg.Artifacts
+using Dash, Pkg.Artifacts
 
 const resources_path = artifact"dash_textarea_autocomplete_resources"
 const version = "1.1.0"
