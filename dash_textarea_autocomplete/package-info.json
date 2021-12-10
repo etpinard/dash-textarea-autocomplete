@@ -18,10 +18,8 @@
     "build:create-tar-file-from-deps": "tar -czf ./deps.tar.gz ./deps && mv ./deps.tar.gz ./deps",
     "build": "npm run build:js && npm run build:backends && npm run build:create-tar-file-from-deps",
     "build:activated": "npm run build:js && npm run build:backends-activated",
-    "postbuild:fixup-external-url-jl": "sed -i 's/https:\\/\\/unpkg.com\\/dash_textarea_autocomplete/https:\\/\\/unpkg.com\\/dash-textarea-autocomplete/' src/DashTextareaAutocomplete.jl",
-    "postbuild:fixup-dash-version-project-jl": "sed -i 's/Dash = \"0.1.3\"/Dash = \"0.1.3, 1.0\"/' Project.toml",
-    "postbuild:fixup-resources-path-jl": "sed -i 's/realpath(joinpath( @__DIR__, \"..\", \"deps\"))/artifact\"dash_textarea_autocomplete_resources\"/' src/DashTextareaAutocomplete.jl",
-    "postbuild": "npm run postbuild:fixup-external-url-jl && npm run postbuild:fixup-dash-version-project-jl && npm run postbuild:fixup-resources-path-jl"
+    "postbuild:fixups": "./postbuild_fixups.sh $npm_package_version",
+    "postbuild": "npm run postbuild:fixups"
   },
   "author": "Etienne Tetreault-Pinard <info@etpinard.xyz>",
   "license": "MIT",
