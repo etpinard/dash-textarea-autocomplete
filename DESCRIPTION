@@ -1,6 +1,6 @@
 Package: dashTextareaAutocomplete
 Title: Dash component wrapper for `react-textarea-autocomplete`
-Version: 1.2.0
+Version: 1.2.1
 Description: Dash component wrapper for `react-textarea-autocomplete`
 Depends: R (>= 3.0.2)
 Imports: 
