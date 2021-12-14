@@ -26,7 +26,8 @@ do
 done
 
 # Artifacts.toml
-julia -e 'using TOML, SHA, Tar, Inflate; \
+julia -e 'using Pkg; Pkg.activate(; temp=true); Pkg.add("Inflate"); \
+    using TOML, SHA, Tar, Inflate; \
     version = TOML.tryparsefile("Project.toml")["version"]; \
     filename = "deps/deps.tar.gz"; \
     res_key = "dash_textarea_autocomplete_resources"; \
