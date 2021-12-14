@@ -26,4 +26,10 @@ do
 done
 
 # Artifacts.toml
-sed -i "s/[1-999]\.[0-999]\.[0-999]\|{version}/${version}/" Artifacts.toml
+julia -e 'using TOML, SHA; \
+    version = TOML.tryparsefile("Project.toml")["version"]; \
+    key = "dash_textarea_autocomplete_resources"; \
+    d = TOML.tryparsefile("Artifacts.toml"); \
+    d[key]["download"][1]["sha256"] = bytes2hex(open(sha256, "deps/deps.tar.gz")); \
+    d[key]["download"][1]["url"] = "https://unpkg.com/dash-textarea-autocomplete@$(version)/deps/deps.tar.gz"; \
+    open(io -> TOML.print(io, d), "Artifacts.toml", "w");'
