@@ -26,10 +26,13 @@ do
 done
 
 # Artifacts.toml
-julia -e 'using TOML, SHA; \
+julia -e 'using TOML, SHA, Tar, Inflate; \
     version = TOML.tryparsefile("Project.toml")["version"]; \
-    key = "dash_textarea_autocomplete_resources"; \
+    filename = "deps/deps.tar.gz"; \
+    res_key = "dash_textarea_autocomplete_resources"; \
+    dl_key = "dash_textarea_autocomplete_resources"; \
     d = TOML.tryparsefile("Artifacts.toml"); \
-    d[key]["download"][1]["sha256"] = bytes2hex(open(sha256, "deps/deps.tar.gz")); \
-    d[key]["download"][1]["url"] = "https://unpkg.com/dash-textarea-autocomplete@$(version)/deps/deps.tar.gz"; \
+    d[res_key]["git-tree-sha1"] = Tar.tree_hash(IOBuffer(inflate_gzip(filename))); \
+    d[dl_key]["download"][1]["sha256"] = bytes2hex(open(sha256, filename)); \
+    d[dl_key]["download"][1]["url"] = "https://unpkg.com/dash-textarea-autocomplete@$(version)/deps/deps.tar.gz"; \
     open(io -> TOML.print(io, d), "Artifacts.toml", "w");'
