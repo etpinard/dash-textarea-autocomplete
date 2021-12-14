@@ -2,7 +2,7 @@
 module DashTextareaAutocomplete
 using Dash
 
-const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
+const resources_path = joinpath(artifact"dash_textarea_autocomplete_resources","deps")
 const version = "1.2.1"
 
 include("jl/dashtextareaautocomplete.jl")
