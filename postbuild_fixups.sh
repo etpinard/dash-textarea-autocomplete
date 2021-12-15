@@ -5,8 +5,9 @@ version=${1?Please specify version}
 # src/DashTextareaAutocomplete
 declare -a moduleregs=(\
 's/https:\/\/unpkg.com\/dash_textarea_autocomplete/https:\/\/unpkg.com\/dash-textarea-autocomplete/' \
-'s/realpath(joinpath( @__DIR__, \"..\", \"deps\"))/artifact\"dash_textarea_autocomplete_resources\"/' \
+'s/const resources_path = realpath(joinpath( @__DIR__, \"..\", \"deps\"))/resources_path() = artifact\"dash_textarea_autocomplete_resources\"/' \
 's/using Dash/using Dash, Pkg.Artifacts/' \
+'s/            resources_path,/            resources_path(),/' \
 )
 
 for reg in "${moduleregs[@]}"
