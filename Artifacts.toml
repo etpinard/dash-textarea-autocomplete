@@ -2,5 +2,5 @@
 git-tree-sha1 = "4cd536223251615d2ae01a3463bc56d2342c6326"
 
     [[dash_textarea_autocomplete_resources.download]]
-    sha256 = "d8fba3937f420ce717622336b255b20ceebe912fe52a9c0a55603892de1ca627"
-    url = "https://unpkg.com/dash-textarea-autocomplete@1.2.1/deps/deps.tar.gz"
+    sha256 = "7a62d6a9188ce69531af3977d4d02b75d629c7362de9871d38bbae738f8a392b"
+    url = "https://unpkg.com/dash-textarea-autocomplete@1.3.0/deps/deps.tar.gz"
