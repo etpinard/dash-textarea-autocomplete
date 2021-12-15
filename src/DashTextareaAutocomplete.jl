@@ -1,8 +1,9 @@
 
 module DashTextareaAutocomplete
-using Dash, Pkg.Artifacts
+using Dash
+using RelocatableFolders
 
-const resources_path = artifact"dash_textarea_autocomplete_resources"
+const resources_path = @path (joinpath( @__DIR__, "..", "deps"))
 const version = "1.3.0"
 
 include("jl/dashtextareaautocomplete.jl")
