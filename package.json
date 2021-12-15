@@ -15,7 +15,7 @@
     "build:js": "webpack --mode production",
     "build:backends": "dash-generate-components ./src/lib/components dash_textarea_autocomplete -p package-info.json --r-prefix '' --jl-prefix ''",
     "build:backends-activated": "(. venv/bin/activate || venv\\scripts\\activate && npm run build:py_and_r)",
-    "build:create-tar-file-from-deps": "tar -czf ./deps.tar.gz ./deps && mv ./deps.tar.gz ./deps",
+    "build:create-tar-file-from-deps": "tar -czf ./deps.tar.gz -C ./deps/ . && mv ./deps.tar.gz ./deps",
     "build": "npm run build:js && npm run build:backends && npm run build:create-tar-file-from-deps",
     "build:activated": "npm run build:js && npm run build:backends-activated",
     "postbuild:fixups": "./postbuild_fixups.sh $npm_package_version",
