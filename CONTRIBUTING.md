@@ -57,9 +57,13 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 
 ## Create a production build and publish:
 
-0. Install dependencies and activate python virtualenv
-    
-    Refer to the [Install dependencies section](#install-dependencies).
+0. Pre-requisites
+    1. Contact @etpinard to get write access to this repo
+    2. Create an npmjs.com account and a pypi.org account and ask @etpinard
+       for publish rights
+    3. Provide your login/pass for Pypi (if you're not using a keychain-type Python module for that)
+       and sign-in to NPM with `npm login`
+    4. Install dependencies and activate python virtualenv [ref](#install-dependencies)
 
 1. Version, build, commit and push your code:
     ```
