@@ -57,6 +57,10 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 
 ## Create a production build and publish:
 
+0. Install dependencies and activate python virtualenv
+
+Refer to the [Install dependencies section](#install-dependencies).
+
 1. Version, build, commit and push your code:
     ```
     $ npm version --no-git-tag-version <patch|minor|major>
