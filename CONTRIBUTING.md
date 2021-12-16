@@ -106,6 +106,28 @@ Refer to the [Install dependencies section](#install-dependencies).
         @JuliaRegistrator register branch=main
         ```
 
+        <details>
+        <summary>If something goes wrong on the JuliaRegistries/General PR (like a test failure), click here</summary>
+
+        + fix the problem,
+        + run `npm run build`,
+        + add, commit and push (but do not bump the version!),
+        + redo step 2-3 and
+        + make another `@JuliaRegistrator register branch=main` comment on the newly pushed
+          commit on Github. The JuliaRegistrator bot will match the version
+          number with the open `JuliaRegistries/General` PR.
+
+        After the `JuliaRegistries/General` PR is merged, the Julia version of
+        the package will be out-of-sync with the NPM and PyPI versions. So it is
+        hightly recommanded to redo the publish process from scratch starting
+        with an `npm version --no-git-tag-version patch` call.
+
+        Note that we cannot simply abandoned an opened `JuliaRegistries/General`
+        PR, as the Julia registries require "sequential" version increments as
+        of 2021-12-16.  That is, going from `v1.1.0` to `v1.2.1` if the `v1.2.0`
+        release is botched is not allowed.
+        </details>
+
 5. Tag and make a Github release
     + Done automatically by [`TagBot`](https://github.com/JuliaRegistries/TagBot)
       after the new version has been merged in Julia's General Registry.
