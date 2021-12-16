@@ -90,7 +90,11 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 
 3. Test your tarball by copying it into a new environment and installing it locally:
     ```
-    $ pip install dash_textarea_autocomplete-X.Y.Z.tar.gz
+    $ mkdir some-tmp-dir
+    $ cd some-tmp-dir
+    $ python3 -m venv venv
+    $ . venv/bin/activate
+    $ pip install /path/to/dist/dash_textarea_autocomplete-X.Y.Z.tar.gz
     ```
 
 4. If it works, then you can publish the component:
