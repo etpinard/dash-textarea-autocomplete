@@ -58,8 +58,8 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 ## Create a production build and publish:
 
 0. Install dependencies and activate python virtualenv
-
-Refer to the [Install dependencies section](#install-dependencies).
+    
+    Refer to the [Install dependencies section](#install-dependencies).
 
 1. Version, build, commit and push your code:
     ```
@@ -107,7 +107,7 @@ Refer to the [Install dependencies section](#install-dependencies).
         ```
 
         <details>
-        <summary>If something goes wrong on the JuliaRegistries/General PR (like a test failure), click here</summary>
+        <summary>If something goes wrong (like a test failure), click here</summary>
 
         + fix the problem,
         + run `npm run build`,
@@ -115,16 +115,15 @@ Refer to the [Install dependencies section](#install-dependencies).
         + redo step 2-3 and
         + make another `@JuliaRegistrator register branch=main` comment on the newly pushed
           commit on Github. The JuliaRegistrator bot will match the version
-          number with the open `JuliaRegistries/General` PR.
+          number with the opened `JuliaRegistries/General` PR.
 
         After the `JuliaRegistries/General` PR is merged, the Julia version of
-        the package will be out-of-sync with the NPM and PyPI versions. So it is
-        hightly recommanded to redo the publish process from scratch starting
-        with an `npm version --no-git-tag-version patch` call.
-
-        Note that we cannot simply abandoned an opened `JuliaRegistries/General`
-        PR, as the Julia registries require "sequential" version increments as
-        of 2021-12-16.  That is, going from `v1.1.0` to `v1.2.1` if the `v1.2.0`
+        the package will be out-of-sync with the NPM and PyPI versions. So, it
+        is hightly recommanded to redo the publish process from scratch starting
+        with an `npm version --no-git-tag-version patch` call.  Note that we
+        cannot simply abandoned an opened `JuliaRegistries/General` PR, as the
+        Julia registries require "sequential" version increments as of
+        2021-12-16.  That is, going from `v1.1.0` to `v1.2.1` if the `v1.2.0`
         release is botched is not allowed.
         </details>
 
