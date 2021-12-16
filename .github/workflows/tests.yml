@@ -38,5 +38,18 @@ jobs:
         run: flake8 usage.py tests
       - name: Test
         run: pytest --headless tests
+      - name: Decompress deps
+        run: gzip -d ./deps/deps.tar.gz
+      - name: Set up Julia Artifact directory (without download)
+        run: |
+          julia -e 'using Pkg.Artifacts;  \
+          using Tar, TOML;  \
+          res_key = "dash_textarea_autocomplete_resources"; \
+          d = TOML.tryparsefile("Artifacts.toml"); \
+          hash = d[res_key]["git-tree-sha1"]; \
+          Tar.extract("deps/deps.tar", mkpath(artifact_path(Base.SHA1(hash))));'
       - name: Test Julia package add
-        run:  julia -e "using Pkg; Pkg.add(url=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY\", rev=\"$GITHUB_SHA\"); using DashTextareaAutocomplete"
+        run:  |
+          julia -e "using Pkg; \
+          Pkg.add(url=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY\", rev=\"$GITHUB_SHA\"); \
+          using DashTextareaAutocomplete"
