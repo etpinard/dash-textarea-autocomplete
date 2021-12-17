@@ -38,3 +38,20 @@ jobs:
         run: flake8 usage.py tests
       - name: Test
         run: pytest --headless tests
+      - name: Decompress deps
+        run: gzip -d ./deps/deps.tar.gz
+      - name: Set-up DastTextareaAutocomplete artifact directory
+      # This step is used to skip artifact download as the url/hash found
+      # in 'Artifacts.toml' might not be valid anymore after `npm run build`
+        run: |
+          julia -e 'using Pkg.Artifacts;  \
+          using Tar, TOML;  \
+          res_key = "dash_textarea_autocomplete_resources"; \
+          d = TOML.tryparsefile("Artifacts.toml"); \
+          hash = d[res_key]["git-tree-sha1"]; \
+          Tar.extract("deps/deps.tar", mkpath(artifact_path(Base.SHA1(hash))));'
+      - name: Test Julia package install
+        run:  |
+          julia -e "using Pkg; \
+          Pkg.add(url=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY\", rev=\"$GITHUB_SHA\"); \
+          using DashTextareaAutocomplete"
