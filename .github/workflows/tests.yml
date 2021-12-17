@@ -48,7 +48,7 @@ jobs:
           d = TOML.tryparsefile("Artifacts.toml"); \
           hash = d[res_key]["git-tree-sha1"]; \
           Tar.extract("deps/deps.tar", mkpath(artifact_path(Base.SHA1(hash))));'
-      - name: Test Julia package add
+      - name: Test Julia package install
         run:  |
           julia -e "using Pkg; \
           Pkg.add(url=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY\", rev=\"$GITHUB_SHA\"); \
