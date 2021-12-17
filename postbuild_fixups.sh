@@ -1,7 +1,5 @@
 #!/bin/bash
 
-version=${1?Please specify version}
-
 # src/DashTextareaAutocomplete
 declare -a moduleregs=(\
 's/const resources_path = realpath(joinpath( @__DIR__, \"..\", \"deps\"))/resources_path() = artifact\"dash_textarea_autocomplete_resources\"/' \

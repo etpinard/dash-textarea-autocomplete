@@ -18,7 +18,7 @@
     "build:create-tar-file-from-deps": "tar -czf ./deps.tar.gz -C ./deps/ . && mv ./deps.tar.gz ./deps",
     "build": "npm run build:js && npm run build:backends && npm run build:create-tar-file-from-deps",
     "build:activated": "npm run build:js && npm run build:backends-activated",
-    "postbuild:fixups": "./postbuild_fixups.sh $npm_package_version",
+    "postbuild:fixups": "./postbuild_fixups.sh",
     "postbuild": "npm run postbuild:fixups"
   },
   "author": "Etienne Tetreault-Pinard <info@etpinard.xyz>",
