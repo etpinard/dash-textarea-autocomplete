@@ -40,7 +40,9 @@ jobs:
         run: pytest --headless tests
       - name: Decompress deps
         run: gzip -d ./deps/deps.tar.gz
-      - name: Set up Julia Artifact directory (without download)
+      - name: Set-up DastTextareaAutocomplete artifact directory
+      # This step is used to skip artifact download as the url/hash found
+      # in 'Artifacts.toml' might not be valid anymore after `npm run build`
         run: |
           julia -e 'using Pkg.Artifacts;  \
           using Tar, TOML;  \
