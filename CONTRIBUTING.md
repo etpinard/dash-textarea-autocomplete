@@ -57,6 +57,14 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 
 ## Create a production build and publish:
 
+0. Pre-requisites
+    1. Contact @etpinard to get write access to this repo
+    2. Create an npmjs.com account and a pypi.org account and ask @etpinard
+       for publish rights
+    3. Provide your login/pass for Pypi (if you're not using a keychain-type Python module for that)
+       and sign-in to NPM with `npm login`
+    4. Install dependencies and activate python virtualenv [ref](#install-dependencies)
+
 1. Version, build, commit and push your code:
     ```
     $ npm version --no-git-tag-version <patch|minor|major>
@@ -82,7 +90,12 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 
 3. Test your tarball by copying it into a new environment and installing it locally:
     ```
-    $ pip install dash_textarea_autocomplete-X.Y.Z.tar.gz
+    $ mkdir some-tmp-dir
+    $ cd some-tmp-dir
+    $ python3 -m venv venv
+    $ . venv/bin/activate
+    $ pip install wheel
+    $ pip install /path/to/dist/dash_textarea_autocomplete-X.Y.Z.tar.gz
     ```
 
 4. If it works, then you can publish the component:
@@ -101,6 +114,27 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
         ```
         @JuliaRegistrator register branch=main
         ```
+
+        <details>
+        <summary>If something goes wrong (like a test failure), click here</summary>
+
+        + fix the problem,
+        + run `npm run build`,
+        + add, commit and push (but do not bump the version!),
+        + redo step 2-3 and
+        + make another `@JuliaRegistrator register branch=main` comment on the newly pushed
+          commit on Github. The JuliaRegistrator bot will match the version
+          number with the opened `JuliaRegistries/General` PR.
+
+        After the `JuliaRegistries/General` PR is merged, the Julia version of
+        the package will be out-of-sync with the NPM and PyPI versions. So, it
+        is hightly recommanded to redo the publish process from scratch starting
+        with an `npm version --no-git-tag-version patch` call.  Note that we
+        cannot simply abandoned an opened `JuliaRegistries/General` PR, as the
+        Julia registries require "sequential" version increments as of
+        2021-12-16.  That is, going from `v1.1.0` to `v1.2.1` if the `v1.2.0`
+        release is botched is not allowed.
+        </details>
 
 5. Tag and make a Github release
     + Done automatically by [`TagBot`](https://github.com/JuliaRegistries/TagBot)
