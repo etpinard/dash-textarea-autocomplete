@@ -94,6 +94,7 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
     $ cd some-tmp-dir
     $ python3 -m venv venv
     $ . venv/bin/activate
+    $ pip install wheel
     $ pip install /path/to/dist/dash_textarea_autocomplete-X.Y.Z.tar.gz
     ```
 
