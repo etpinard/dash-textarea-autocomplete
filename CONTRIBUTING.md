@@ -67,6 +67,7 @@ _N.B.: because of the current usage of `postbuild_fixups.sh` build script, this 
 
 1. Version, build, commit and push your code:
     ```
+    $ git checkout main
     $ npm version --no-git-tag-version <patch|minor|major>
     $ npm run build
     $ git add --all
