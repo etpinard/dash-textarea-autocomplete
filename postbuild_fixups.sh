@@ -1,7 +1,5 @@
 #!/bin/bash
 
-version=${1?Please specify version}
-
 # src/DashTextareaAutocomplete
 declare -a moduleregs=(\
 's/const resources_path = realpath(joinpath( @__DIR__, \"..\", \"deps\"))/resources_path() = artifact\"dash_textarea_autocomplete_resources\"/' \
@@ -25,15 +23,5 @@ do
     sed -i "$reg" Project.toml
 done
 
-# Artifacts.toml
-julia -e 'using Pkg; Pkg.activate(; temp=true); Pkg.add("Inflate"); \
-    using TOML, SHA, Tar, Inflate; \
-    version = TOML.tryparsefile("Project.toml")["version"]; \
-    filename = "deps/deps.tar.gz"; \
-    res_key = "dash_textarea_autocomplete_resources"; \
-    dl_key = "dash_textarea_autocomplete_resources"; \
-    d = TOML.tryparsefile("Artifacts.toml"); \
-    d[res_key]["git-tree-sha1"] = Tar.tree_hash(IOBuffer(inflate_gzip(filename))); \
-    d[dl_key]["download"][1]["sha256"] = bytes2hex(open(sha256, filename)); \
-    d[dl_key]["download"][1]["url"] = "https://unpkg.com/dash-textarea-autocomplete@$(version)/deps/deps.tar.gz"; \
-    open(io -> TOML.print(io, d), "Artifacts.toml", "w");'
+# deps/deps.tar.gz + Artifacts.toml
+julia generate_artifacts.jl
